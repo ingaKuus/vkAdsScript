@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  hides ads on VK.com
-// @author       theUniverse3
+// @author       theUniverse
 // @match        https://vk.com/*
 // @grant        none
 // ==/UserScript==
@@ -77,7 +77,7 @@
             let societies = document.getElementById('groups_filters_wrap');
             if (societies) {
                 societies.remove();
-                console.log('recommended societies list has been UTILITIZED!!!');
+                console.log('recommended societies list has been GRINDED!!!');
             }
         }
 
