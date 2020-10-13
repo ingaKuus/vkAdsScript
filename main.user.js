@@ -14,9 +14,15 @@
     console.log('==== start fukVkAds user script ====');
 
     // Переименовывание пункта меню "Мессенджер" в "Сообщения"
-    let msgLine = document.getElementById('l_msg').getElementsByClassName("left_label")[0];
-    if (msgLine) msgLine.innerHTML = "Сообщения";
-    console.log('messenger no more...');
+    let msgLine = document.getElementById('l_msg');
+    if (msgLine) {
+        msgLine = msgLine.getElementsByClassName("left_label")[0];
+
+        if (msgLine) {
+            msgLine.innerHTML = "Сообщения";
+            console.log('messenger no more...');
+        }
+    }
 
     if (/https:\/\/vk.com/.test(w.location.href)) {
         // убийство рекламы под навигационным меню
