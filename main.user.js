@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  hides ads on VK.com
-// @author       theUniverse
+// @author       theUniverse3
 // @match        https://vk.com/*
 // @grant        none
 // ==/UserScript==
