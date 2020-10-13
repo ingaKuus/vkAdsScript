@@ -25,7 +25,7 @@
     }
 
     if (/https:\/\/vk.com/.test(w.location.href)) {
-        // убийство рекламы под навигационным меню
+        // уничтожение рекламы под навигационным меню
         let ad = document.getElementById('ads_left');
         if (ad) {
             ad.style.position = 'absolute';
@@ -33,7 +33,7 @@
             console.log('FUKK ADDDSSSS!!!!!');
         }
 
-        // убийство рекламы в др. разделах
+        // уничтожение рекламы в др. разделах
         killAds();
         setInterval(killAds, 1 * 1000);
     }
@@ -41,7 +41,7 @@
     function killAds() {
         let isCommunity = Boolean(document.getElementById('public') || document.getElementById('group'));
 
-        // убийство рекламных постов, встроенных в ленту и в сообщества
+        // уничтожение рекламных постов, встроенных в ленту и в сообщества
         if (/https:\/\/vk.com\/feed/.test(w.location.href) || isCommunity) {
             let ads = Array.from(document.getElementsByClassName('_ads_block_data_w'));
             let groupRecommBlock = document.getElementsByClassName('feed_groups_recomm')[0];
@@ -54,7 +54,7 @@
                 console.log('feed ad has been KILLED!!!');
             }
 
-            // убийство небольшого блока рекламы справа от ленты
+            // уничтожение небольшого блока рекламы справа от ленты
             if (/https:\/\/vk.com\/feed/.test(w.location.href)) {
                 let sideAds = document.getElementById('feed_filters').children;
                 if (sideAds.length > 1) {
@@ -66,7 +66,7 @@
             }
         }
 
-        // убийство приглашений на вк фест и предложений купить подписку на VK music во вкладке "аудиозаписи"
+        // уничтожение приглашений на вк фест и предложений купить подписку на VK music во вкладке "аудиозаписи"
         if (/https:\/\/vk.com\/audios/.test(w.location.href)) {
             let ads = [document.getElementsByClassName('audio_promo')[0], document.getElementsByClassName('CatalogBlock__subscription')[0]];
 
@@ -78,7 +78,7 @@
             });
         }
 
-        // убийство списка рекомендумых сообществ во вкладке "сообщества"
+        // уничтожение списка рекомендумых сообществ во вкладке "сообщества"
         if (/https:\/\/vk.com\/groups/.test(w.location.href)) {
             let societies = document.getElementById('groups_filters_wrap');
             if (societies) {
