@@ -11,7 +11,7 @@
 (function() {
     'use strict';
     let w = window;
-    console.log('=== start fukVkAds user script ===');
+    console.log('==== start fukVkAds user script ====');
 
     // Переименовывание пункта меню "Мессенджер" в "Сообщения"
     let msgLine = document.getElementById('l_msg').getElementsByClassName("left_label")[0];
