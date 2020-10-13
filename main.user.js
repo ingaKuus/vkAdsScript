@@ -92,5 +92,4 @@
             document.title = "Сообщения";
         }
     }
-    // update test final
 })();
