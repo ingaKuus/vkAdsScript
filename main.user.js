@@ -55,7 +55,7 @@
             }
 
             // уничтожение небольшого блока рекламы справа от ленты
-            if (/https:\/\/vk.com\/feed/.test(w.location.href)) {
+            if (/https:\/\/vk.com\/feed/.test(w.location.href) || /https:\/\/vk.com\/al_feed.php/.test(w.location.href)) {
                 let sideAds = document.getElementById('feed_filters').children;
                 if (sideAds.length > 1) {
                     Array.from(sideAds).forEach((el, n) => {
