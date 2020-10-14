@@ -42,7 +42,7 @@
         let isCommunity = Boolean(document.getElementById('public') || document.getElementById('group'));
 
         // уничтожение рекламных постов, встроенных в ленту и в сообщества
-        if (/https:\/\/vk.com\/feed/.test(w.location.href) || isCommunity) {
+        if (/https:\/\/vk.com\/feed/.test(w.location.href) || /https:\/\/vk.com\/al_feed.php/.test(w.location.href) || isCommunity) {
             let ads = Array.from(document.getElementsByClassName('_ads_block_data_w'));
             let groupRecommBlock = document.getElementsByClassName('feed_groups_recomm')[0];
             if (groupRecommBlock) ads.push(groupRecommBlock);
