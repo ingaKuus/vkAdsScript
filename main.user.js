@@ -67,7 +67,7 @@
         }
 
         // уничтожение приглашений на вк фест и предложений купить подписку на VK music во вкладке "аудиозаписи"
-        if (/https:\/\/vk.com\/audios/.test(w.location.href)) {
+        if (/https:\/\/vk.com\/audio/.test(w.location.href)) {
             let ads = [document.getElementsByClassName('audio_promo')[0], document.getElementsByClassName('CatalogBlock__subscription')[0]];
 
             ads.forEach(ad => {
