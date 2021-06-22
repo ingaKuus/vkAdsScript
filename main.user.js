@@ -24,6 +24,13 @@
         }
     }
 
+    // Уничтожение пункта меню "VK Combo"
+    /* let vkCombo = document.getElementById('l_combo');
+    if (vkCombo) {
+        vkCombo.remove();
+        console.log('VK Combo removed');
+    } */
+
     if (/https:\/\/vk.com/.test(w.location.href)) {
         // уничтожение рекламы под навигационным меню
         let ad = document.getElementById('ads_left');
@@ -37,6 +44,7 @@
         killAds();
         setInterval(killAds, 1 * 1000);
     }
+
 
     function killAds() {
         let isCommunity = Boolean(document.getElementById('public') || document.getElementById('group'));
@@ -80,9 +88,9 @@
 
         // уничтожение списка рекомендумых сообществ во вкладке "сообщества"
         if (/https:\/\/vk.com\/groups/.test(w.location.href)) {
-            let societies = document.getElementById('groups_filters_wrap');
-            if (societies) {
-                societies.remove();
+            let societiesBlock = document.getElementById('groups_filters_wrap');
+            if (societiesBlock) {
+                societiesBlock.remove();
                 console.log('recommended societies list has been GRINDED!!!');
             }
         }
@@ -90,6 +98,24 @@
         // Переименовывание браузерной вкладки "Мессенджер" в "Сообщения"
         if (/https:\/\/vk.com\/im/.test(w.location.href)){
             document.title = "Сообщения";
+        }
+
+        // Удаление блока с историями
+        if (/https:\/\/vk.com\/feed/.test(w.location.href)) {
+            let storiesBlock = document.getElementById('stories_feed_wrap');
+            if (storiesBlock) {
+                storiesBlock.remove();
+                console.log('stories block RIP');
+            }
+        }
+
+        // Удаление блока с клипами
+        if (/https:\/\/vk.com\/feed/.test(w.location.href)) {
+            let clipsBlock = document.getElementsByClassName('ShortVideoFeedBlock')[0];
+            if (clipsBlock) {
+                clipsBlock.remove();
+                console.log('clips have been cut out');
+            }
         }
     }
 })();
