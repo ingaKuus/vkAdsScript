@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         fukVkAds
+// @name         VkAds_RIP
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  hides ads on VK.com
@@ -11,7 +11,7 @@
 (function() {
     'use strict';
     let w = window;
-    console.log('=== start fukVkAds user script ===');
+    console.log('=== start VkAds_RIP user script ===');
 
     // Переименовывание пункта меню "Мессенджер" в "Сообщения"
     let msgLine = document.getElementById('l_msg');
@@ -37,7 +37,7 @@
         if (ad) {
             ad.style.position = 'absolute';
             ad.style.left = '-50vw';
-            console.log('FUKK ADDDSSSS!!!!!');
+            console.log('left side ads RIP');
         }
 
         // уничтожение рекламы в др. разделах
@@ -59,7 +59,7 @@
                 ads.forEach(el => {
                     el.remove();
                 });
-                console.log('feed ad has been KILLED!!!');
+                console.log('feed ad RIP');
             }
 
             // уничтожение небольшого блока рекламы справа от ленты
@@ -69,7 +69,7 @@
                     Array.from(sideAds).forEach((el, n) => {
                         if (n) el.remove();
                     });
-                    console.log('right side ads have been DESTROYED!!!');
+                    console.log('right side ads RIP');
                 }
             }
         }
@@ -81,7 +81,7 @@
             ads.forEach(ad => {
                 if (ad) {
                     ad.remove();
-                    console.log('audio ad has been BRUTALLY MURDERED!!');
+                    console.log('audio ad RIP');
                 }
             });
         }
@@ -91,7 +91,7 @@
             let societiesBlock = document.getElementById('groups_filters_wrap');
             if (societiesBlock) {
                 societiesBlock.remove();
-                console.log('recommended societies list has been GRINDED!!!');
+                console.log('recommended societies list RIP');
             }
         }
 
@@ -114,7 +114,7 @@
             let clipsBlock = document.getElementsByClassName('ShortVideoFeedBlock')[0];
             if (clipsBlock) {
                 clipsBlock.remove();
-                console.log('clips have been cut out');
+                console.log('clips RIP');
             }
         }
     }
