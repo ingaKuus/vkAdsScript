@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VkAds_RIP
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  hides ads on VK.com
 // @author       theUniverse
 // @match        https://vk.com/*
@@ -116,6 +116,13 @@
                 clipsBlock.remove();
                 console.log('clips RIP');
             }
+        }
+        
+        // Удаление рекомендаций во вкладке "Сообщения" ("Мессенджер")
+        let messageRecommBlock = document.getElementsByClassName('ConvoRecommendList')[0];
+        if (messageRecommBlock) {
+            messageRecommBlock.remove();
+            console.log('message recommend block RIP');
         }
     }
 })();
