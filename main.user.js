@@ -119,10 +119,7 @@
         }
         
         // Удаление рекомендаций во вкладке "Сообщения" ("Мессенджер")
-        let messageRecommBlock = document.getElementsByClassName('ConvoRecommendList')[0];
-        if (messageRecommBlock) {
-            messageRecommBlock.remove();
-            console.log('message recommend block RIP');
-        }
+        // Это можно сделать в настройках чатов: навести курсор на три точки справа от поля поиска сообщений:
+        // нажать "настройки", далее "показывать рекомендуемых собеседников - выкл"
     }
 })();
