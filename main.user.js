@@ -24,26 +24,17 @@
         }
     }
 
-    // Уничтожение пункта меню "VK Combo"
-    /* let vkCombo = document.getElementById('l_combo');
-    if (vkCombo) {
-        vkCombo.remove();
-        console.log('VK Combo removed');
-    } */
-
-    if (/https:\/\/vk.com/.test(w.location.href)) {
-        // уничтожение рекламы под навигационным меню
-        let ad = document.getElementById('ads_left');
-        if (ad) {
-            ad.style.position = 'absolute';
-            ad.style.left = '-50vw';
-            console.log('left side ads RIP');
-        }
-
-        // уничтожение рекламы в др. разделах
-        killAds();
-        setInterval(killAds, 1 * 1000);
+    // уничтожение рекламы под навигационным меню
+    let ad = document.getElementById('ads_left');
+    if (ad) {
+        ad.style.position = 'absolute';
+        ad.style.left = '-50vw';
+        console.log('left side ads RIP');
     }
+
+    // уничтожение рекламы в др. разделах
+    killAds();
+    setInterval(killAds, 1 * 1000);
 
 
     function killAds() {
@@ -117,9 +108,12 @@
                 console.log('clips RIP');
             }
         }
-        
-        // Удаление рекомендаций во вкладке "Сообщения" ("Мессенджер")
-        // Это можно сделать в настройках чатов: навести курсор на три точки справа от поля поиска сообщений:
-        // нажать "настройки", далее "показывать рекомендуемых собеседников - выкл"
+
+        // Удаление блока быстрых чатов в правом нижнем углу
+        let fastChatBlock = document.getElementById('fastchat-reforged');
+        if (fastChatBlock) {
+            fastChatBlock.remove();
+            console.log('fast chat block RIP');
+        }
     }
 })();
