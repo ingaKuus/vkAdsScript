@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VkAds_RIP
 // @namespace    http://tampermonkey.net/
-// @version      1.2.2
+// @version      1.3.0
 // @description  hides ads on VK.com
 // @author       theUniverse
 // @match        https://vk.com/*
@@ -12,17 +12,6 @@
     'use strict';
     let w = window;
     console.log('=== start VkAds_RIP user script ===');
-
-    // Переименовывание пункта меню "Мессенджер" в "Сообщения"
-    let msgLine = document.getElementById('l_msg');
-    if (msgLine) {
-        msgLine = msgLine.getElementsByClassName("left_label")[0];
-
-        if (msgLine) {
-            msgLine.innerHTML = "Сообщения";
-            console.log('messenger no more...');
-        }
-    }
 
     // уничтожение рекламы под навигационным меню
     let ad = document.getElementById('ads_left');
@@ -50,28 +39,29 @@
             let groupRecommBlock = document.getElementsByClassName('feed_groups_recomm')[0];
             if (groupRecommBlock) ads.push(groupRecommBlock);
             // удаление рекомендации друзей в ленте
-            let friendsRecommBlock = document.getElementsByClassName('feed_friends_recomm')[0];
+            let friendsRecommBlock = document.getElementById('friends_right_blocks_root');
             if (friendsRecommBlock) ads.push(friendsRecommBlock);
             // удаление рекомендации товаров в ленте
             let marketRecommBlock = document.getElementsByClassName('MarketItemsFeedBlock')[0];
             if (marketRecommBlock) ads.push(marketRecommBlock);
+
+            // уничтожение небольшого блока рекламы справа от ленты
+            if (/https:\/\/vk.com\/feed/.test(w.location.href) || /https:\/\/vk.com\/al_feed.php/.test(w.location.href)) {
+                // let sideAds = document.getElementById('feed_filters').children;
+                const sideAds = document.getElementsByClassName('apps_feedRightAppsBlock');
+                if (sideAds.length) {
+                    Array.from(sideAds).forEach((el, n) => {
+                        if (el) el.remove();
+                    });
+                    console.log('right side ads RIP');
+                }
+            }
 
             if (ads.length) {
                 ads.forEach(el => {
                     el.remove();
                 });
                 console.log('feed ad RIP');
-            }
-
-            // уничтожение небольшого блока рекламы справа от ленты
-            if (/https:\/\/vk.com\/feed/.test(w.location.href) || /https:\/\/vk.com\/al_feed.php/.test(w.location.href)) {
-                let sideAds = document.getElementById('feed_filters').children;
-                if (sideAds.length > 1) {
-                    Array.from(sideAds).forEach((el, n) => {
-                        if (n) el.remove();
-                    });
-                    console.log('right side ads RIP');
-                }
             }
         }
 
