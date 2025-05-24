@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VkAds_RIP
 // @namespace    http://tampermonkey.net/
-// @version      1.3.0
+// @version      1.3.1
 // @description  hides ads on VK.com
 // @author       theUniverse
 // @match        https://vk.com/*
@@ -84,11 +84,6 @@
                 societiesBlock.remove();
                 console.log('recommended societies list RIP');
             }
-        }
-
-        // Переименовывание браузерной вкладки "Мессенджер" в "Сообщения"
-        if (/https:\/\/vk.com\/im/.test(w.location.href)){
-            document.title = "Сообщения";
         }
 
         // Удаление блока с историями
