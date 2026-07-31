@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VkAds_RIP
 // @namespace    http://tampermonkey.net/
-// @version      1.3.4
+// @version      1.3.5
 // @description  hides ads on vk.ru
 // @author       theUniverse
 // @match        https://vk.ru/*
