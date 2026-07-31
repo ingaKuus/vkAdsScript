@@ -27,23 +27,26 @@
 
 
     function killAds() {
-        let isCommunity = Boolean(document.getElementById('public') || document.getElementById('group'));
+        const isCommunity = Boolean(document.getElementById('public') || document.getElementById('group'));
 
         // уничтожение рекламных постов, встроенных в ленту и в сообщества
         if (/https:\/\/vk.com\/feed/.test(w.location.href) || /https:\/\/vk.com\/al_feed.php/.test(w.location.href) || isCommunity) {
-            let ads = Array.from(document.getElementsByClassName('_ads_block_data_w'));
-            let newAd = document.getElementsByClassName('mark_top_verified')[1];
+            const ads = Array.from(document.getElementsByClassName('_ads_block_data_w'));
+            const newAd = document.getElementsByClassName('mark_top_verified')[1];
             if (newAd) ads.push(newAd);
 
             // удаление рекомендации сообществ в ленте
-            let groupRecommBlock = document.getElementsByClassName('feed_groups_recomm')[0];
+            const groupRecommBlock = document.getElementsByClassName('feed_groups_recomm')[0];
             if (groupRecommBlock) ads.push(groupRecommBlock);
             // удаление рекомендации друзей в ленте
-            let friendsRecommBlock = document.getElementById('friends_right_blocks_root');
+            const friendsRecommBlock = document.getElementById('friends_right_blocks_root');
             if (friendsRecommBlock) ads.push(friendsRecommBlock);
             // удаление рекомендации товаров в ленте
-            let marketRecommBlock = document.getElementsByClassName('MarketItemsFeedBlock')[0];
+            const marketRecommBlock = document.getElementsByClassName('MarketItemsFeedBlock')[0];
             if (marketRecommBlock) ads.push(marketRecommBlock);
+            // удаление рекомендаций приложений в ленте
+            const appRecommBlocks = document.getElementsByClassName("apps_feedRightAppsBlock");
+            if (appRecommBlocks.length) ads.push(...appRecommBlocks);
 
             // уничтожение небольшого блока рекламы справа от ленты
             if (/https:\/\/vk.com\/feed/.test(w.location.href) || /https:\/\/vk.com\/al_feed.php/.test(w.location.href)) {
@@ -67,7 +70,7 @@
 
         // уничтожение приглашений на вк фест и предложений купить подписку на VK music во вкладке "аудиозаписи"
         if (/https:\/\/vk.com\/audio/.test(w.location.href)) {
-            let ads = [document.getElementsByClassName('audio_promo')[0], document.getElementsByClassName('CatalogBlock__subscription_ru')[0]];
+            const ads = [document.getElementsByClassName('audio_promo')[0], document.getElementsByClassName('CatalogBlock__subscription_ru')[0]];
 
             ads.forEach(ad => {
                 if (ad) {
@@ -79,7 +82,7 @@
 
         // уничтожение списка рекомендумых сообществ во вкладке "сообщества"
         if (/https:\/\/vk.com\/groups/.test(w.location.href)) {
-            let societiesBlock = document.getElementById('groups_filters_wrap');
+            const societiesBlock = document.getElementById('groups_filters_wrap');
             if (societiesBlock) {
                 societiesBlock.remove();
                 console.log('recommended societies list RIP');
@@ -88,7 +91,7 @@
 
         // Удаление блока с историями
         if (/https:\/\/vk.com\/feed/.test(w.location.href)) {
-            let storiesBlock = document.getElementById('stories_feed_wrap');
+            const storiesBlock = document.getElementById('stories_feed_wrap');
             if (storiesBlock) {
                 storiesBlock.remove();
                 console.log('stories block RIP');
@@ -97,7 +100,7 @@
 
         // Удаление блока с клипами
         if (/https:\/\/vk.com\/feed/.test(w.location.href)) {
-            let clipsBlock = document.getElementsByClassName('ShortVideoFeedBlock')[0];
+            const clipsBlock = document.getElementsByClassName('ShortVideoFeedBlock')[0];
             if (clipsBlock) {
                 clipsBlock.remove();
                 console.log('clips RIP');
@@ -105,7 +108,7 @@
         }
 
         // Удаление блока быстрых чатов в правом нижнем углу
-        let fastChatBlock = document.getElementById('fastchat-reforged');
+        const fastChatBlock = document.getElementById('fastchat-reforged');
         if (fastChatBlock) {
             fastChatBlock.remove();
             console.log('fast chat block RIP');
