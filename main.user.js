@@ -48,7 +48,6 @@
             // уничтожение небольшого блока рекламы справа от ленты
             if (/https:\/\/vk.ru\/feed/.test(w.location.href) || /https:\/\/vk.ru\/al_feed.php/.test(w.location.href)) {
                 const sideAds = document.getElementsByClassName('apps_feedRightAppsBlock');
-                console.log(sideAds);
                 if (sideAds.length) {
                     Array.from(sideAds).forEach(el => {
                         if (el) el.remove();
