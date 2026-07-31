@@ -10,11 +10,11 @@
 
 (function() {
     'use strict';
-    let w = window;
+    const w = window;
     console.log('=== start VkAds_RIP user script ===');
 
     // уничтожение рекламы под навигационным меню
-    let ad = document.getElementById('ads_left');
+    const ad = document.getElementById('ads_left');
     if (ad) {
         ad.style.position = 'absolute';
         ad.style.left = '-50vw';
@@ -50,7 +50,6 @@
 
             // уничтожение небольшого блока рекламы справа от ленты
             if (/https:\/\/vk.com\/feed/.test(w.location.href) || /https:\/\/vk.com\/al_feed.php/.test(w.location.href)) {
-                // let sideAds = document.getElementById('feed_filters').children;
                 const sideAds = document.getElementsByClassName('apps_feedRightAppsBlock');
                 if (sideAds.length) {
                     Array.from(sideAds).forEach((el, n) => {
