@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VkAds_RIP
 // @namespace    http://tampermonkey.net/
-// @version      1.3.6
+// @version      1.3.7
 // @description  hides ads on vk.ru
 // @author       theUniverse
 // @match        https://vk.ru/*
@@ -36,7 +36,7 @@
             if (newAd) ads.push(newAd);
 
             // удаление рекомендации сообществ в ленте
-            const groupRecommBlock = document.getElementsByClassName('feed_groups_recomm')[0];
+            const groupRecommBlock = document.getElementById('feed_right_blocks_root');
             if (groupRecommBlock) ads.push(groupRecommBlock);
             // удаление рекомендации друзей в ленте
             const friendsRecommBlock = document.getElementById('friends_right_blocks_root');
